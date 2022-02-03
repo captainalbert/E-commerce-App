@@ -19,8 +19,9 @@ function Card({ title, subTitle, image }) {
 const styles = StyleSheet.create({
   card: {
     borderRadius: 15,
-    backgroundColor: "tomato",
+    backgroundColor: "gray",
     margin: 20,
+    marginVertical: 10,
     overflow: "hidden",
   },
   detailsContainer: {
