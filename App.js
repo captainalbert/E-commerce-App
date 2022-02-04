@@ -15,24 +15,6 @@ import { Switch } from "react-native";
 import AppPicker from "./app/components/AppPicker";
 import LoginScreen from "./app/screens/LoginScreen";
 
-const categories = [
-  {
-    label: "Furniture",
-    value: 1,
-  },
-  {
-    label: "Clothing",
-    value: 2,
-  },
-  {
-    label: "Camera",
-    value: 3,
-  },
-];
-
 export default function App() {
-  const [isNew, setIsNew] = useState(false);
-  const [category, setCategory] = useState(categories[0]);
-
   return <LoginScreen />;
 }
