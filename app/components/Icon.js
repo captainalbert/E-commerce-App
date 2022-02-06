@@ -7,7 +7,7 @@ export default function Icon({
   name,
   size = 40,
   backgroundColor = "tomato",
-  iconColor = "fff",
+  iconColor = "#fff",
 }) {
   return (
     <View

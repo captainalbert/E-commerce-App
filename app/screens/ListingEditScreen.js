@@ -1,22 +1,18 @@
 import React from "react";
 
 import { StyleSheet } from "react-native";
-import { useFormikContext } from "formik";
 import * as Yup from "yup";
 
-// import {
-//   AppForm,
-//   AppFormField,
-//   ErrorMessage,
-//   SubmitButton,
-// } from "../components/forms";
-
-import AppForm from "../components/forms/AppForm";
-import AppFormField from "../components/forms/AppFormField";
-import SubmitButton from "../components/forms/SubmitButton";
+import {
+  AppForm,
+  AppFormField,
+  AppFormPicker,
+  SubmitButton,
+} from "../components/forms/Index";
 
 import Screen from "../components/Screen";
-import AppFormPicker from "../components/forms/AppFormPicker";
+
+import CategoryPickerItem from "../components/CategoryPickerItem";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -26,14 +22,12 @@ const validationSchema = Yup.object().shape({
 });
 
 const categories = [
-  { label: "Furniture", value: 1 },
-  { label: "Clothing", value: 2 },
-  { label: "Appliance", value: 3 },
+  { label: "Furniture", value: 1, backgroundColor: "red", icon: "apps" },
+  { label: "Clothing", value: 2, backgroundColor: "green", icon: "email" },
+  { label: "Appliance", value: 3, backgroundColor: "blue", icon: "lock" },
 ];
 
 function ListingEditScreen(props) {
-  // const {setFieldTouched, handleChange, errors, touched}= useFormikContext();
-
   return (
     <Screen style={styles.container}>
       <AppForm
@@ -53,12 +47,20 @@ function ListingEditScreen(props) {
           placeholder="Item name"
         />
 
-        <AppFormField name="price" keyboardType="numeric" placeholder="Price" />
+        <AppFormField
+          name="price"
+          keyboardType="numeric"
+          placeholder="Price"
+          width={120}
+        />
 
         <AppFormPicker
           items={categories}
           name="category"
+          numberOfColumns={3}
+          PickerItemComponent={CategoryPickerItem}
           placeholder="Category"
+          width={120}
         />
 
         <AppFormField

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
 
 import {
   ListItem,
   ListItemDeleteAction,
   ListItemSeparator,
 } from "../components/lists/Index";
-
 import Screen from "../components/Screen";
 
 const initialMessages = [
@@ -25,7 +24,8 @@ const initialMessages = [
   {
     id: 3,
     title: "Robbie",
-    description: "Do you have the things that I gave u?",
+    description:
+      "Fugiat ad amet ullamco id occaecat minim. Consectetur commodo pariatur est excepteur deserunt elit do qui aute ea esse. Aute tempor officia eu et pariatur aliquip dolor sint exercitation est.",
     image: require("../assets/avatars/man3.png"),
   },
 ];
