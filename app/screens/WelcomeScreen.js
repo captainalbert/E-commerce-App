@@ -1,5 +1,13 @@
 import React from "react";
-import { Alert, ImageBackground, StyleSheet, Text, View } from "react-native";
+import {
+  Alert,
+  Image,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+
 import AppButton from "../components/AppButton";
 import colors from "../config/colors";
 
@@ -10,8 +18,10 @@ function WelcomeScreen(props) {
       source={require("../assets/background.jpg")}
     >
       <View style={styles.logoContainer}>
-        {/* placeholder for logo */}
-        <View style={styles.logo}></View>
+        <Image
+          style={styles.logo}
+          source={require("../assets/shopeasy-logo.png")}
+        />
         <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
 
