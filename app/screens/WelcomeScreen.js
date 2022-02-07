@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 
-import AppButton from "../components/AppButton";
+import AppButton from "../components/Button";
 import colors from "../config/colors";
 
 function WelcomeScreen(props) {
