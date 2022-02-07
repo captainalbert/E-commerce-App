@@ -40,7 +40,6 @@ function LoginScreen(props) {
           icon="lock"
           secureTextEntry
           placeholder="Password"
-          width={50}
         />
 
         <SubmitButton title="Login" />
