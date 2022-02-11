@@ -1,24 +1,24 @@
-import React, { useState } from "react";
-
+import React from "react";
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
-import * as ImagePicker from "expo-image-picker";
 
 import {
   AppForm,
   AppFormField,
   AppFormPicker,
   SubmitButton,
+  ImagePicker as AppImagePicker,
 } from "../components/forms/Index";
 import CategoryPickerItem from "../components/CategoryPickerItem";
-import ImageInput from "../components/ImageInput";
 import Screen from "../components/Screen";
+import useLocation from "../hooks/useLocation";
 
 const validationSchema = Yup.object().shape({
   price: Yup.number().required().min(1).max(100000).label("Price"),
   title: Yup.string().required().min(1).label("Title"),
   description: Yup.string().label("Description"),
   category: Yup.object().required().nullable().label("Category"),
+  images: Yup.array().min(1, "Please select atleast one (1) image."),
 });
 
 const categories = [
@@ -29,22 +29,22 @@ const categories = [
 ];
 
 function ListingEditScreen(props) {
-  const [image, setImage] = useState(null);
+  const location = useLocation();
 
   return (
     <Screen style={styles.container}>
       <AppForm
         initialValues={{
-          image: null,
           title: "",
           price: "",
           description: "",
           category: null,
+          images: [],
         }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values) => console.log(location)}
         validationSchema={validationSchema}
       >
-        <ImageInput imageUri={image} onChangeImage={(uri) => setImage(uri)} />
+        <AppImagePicker name="images" />
 
         <AppFormField
           name="title"
