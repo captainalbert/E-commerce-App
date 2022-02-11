@@ -1,10 +1,13 @@
 import React from "react";
-import { View, StyleSheet, Image } from "react-native";
-import AppText from "../components/Text";
-import ListItem from "../components/lists/ListItem";
+import { View, StyleSheet, Image, Text } from "react-native";
+import { useRoute } from "@react-navigation/native";
+
 import colors from "../config/colors";
 
-function ListingDetailsScreen(props) {
+import AppText from "../components/Text";
+import ListItem from "../components/lists/ListItem";
+
+function ListingDetailsScreen() {
   return (
     <View>
       <Image style={styles.image} source={require("../assets/chair.jpg")} />

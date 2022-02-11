@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, StyleSheet } from "react-native";
+import { FlatList, StyleSheet, TouchableHighlight } from "react-native";
 
 import Screen from "../components/Screen";
 import Card from "../components/Card";
@@ -20,18 +20,24 @@ const listings = [
   },
 ];
 
-function ListingScreen(props) {
+function ListingScreen({ navigation }) {
   return (
     <Screen style={styles.screen}>
       <FlatList
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
         renderItem={({ item }) => (
-          <Card
-            title={item.title}
-            subTitle={"$" + item.price}
-            image={item.image}
-          />
+          <TouchableHighlight
+            onPress={() =>
+              navigation.navigate("ListingDetailScreen", { title: item.title })
+            }
+          >
+            <Card
+              title={item.title}
+              subTitle={"$" + item.price}
+              image={item.image}
+            />
+          </TouchableHighlight>
         )}
       />
     </Screen>
