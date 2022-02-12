@@ -1,17 +1,11 @@
 import React from "react";
-import {
-  Alert,
-  Image,
-  ImageBackground,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import routes from "../navigation/routes";
+import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 
 import AppButton from "../components/Button";
 import colors from "../config/colors";
 
-function WelcomeScreen(props) {
+function WelcomeScreen({ navigation }) {
   return (
     <ImageBackground
       style={styles.background}
@@ -29,13 +23,13 @@ function WelcomeScreen(props) {
         <AppButton
           title="login"
           onPress={() => {
-            Alert.alert("Login Tapped.");
+            navigation.navigate(routes.LOGIN);
           }}
         />
         <AppButton
           title="register"
           onPress={() => {
-            Alert.alert("Register Tapped.");
+            navigation.navigate(routes.REGISTER);
           }}
           color="secondary"
         />

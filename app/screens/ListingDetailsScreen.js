@@ -1,20 +1,20 @@
 import React from "react";
 import { View, StyleSheet, Image, Text } from "react-native";
-import { useRoute } from "@react-navigation/native";
 
 import colors from "../config/colors";
 
 import AppText from "../components/Text";
 import ListItem from "../components/lists/ListItem";
 
-function ListingDetailsScreen() {
+function ListingDetailsScreen({ route }) {
+  const listing = route.params;
   return (
     <View>
-      <Image style={styles.image} source={require("../assets/chair.jpg")} />
+      <Image style={styles.image} source={listing.image} />
       <View style={styles.detailsContainer}>
-        <AppText style={styles.title}>HighMinds Clothing T-Shirt</AppText>
+        <AppText style={styles.title}>{listing.title}</AppText>
         {/* NOTE: Customized text for price because the AppText style can't be overriden. EDIT: FIXED: pass style as props*/}
-        <AppText style={styles.price}>$59.99</AppText>
+        <AppText style={styles.price}>${listing.price}</AppText>
 
         <View style={styles.userContainer}>
           <ListItem

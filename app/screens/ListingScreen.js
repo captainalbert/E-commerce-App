@@ -1,9 +1,10 @@
 import React from "react";
-import { FlatList, StyleSheet, TouchableHighlight } from "react-native";
-
-import Screen from "../components/Screen";
-import Card from "../components/Card";
 import colors from "../config/colors";
+import routes from "../navigation/routes";
+import { FlatList, StyleSheet } from "react-native";
+
+import Card from "../components/Card";
+import Screen from "../components/Screen";
 
 const listings = [
   {
@@ -27,17 +28,14 @@ function ListingScreen({ navigation }) {
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
         renderItem={({ item }) => (
-          <TouchableHighlight
+          <Card
+            title={item.title}
+            subTitle={"$" + item.price}
+            image={item.image}
             onPress={() =>
-              navigation.navigate("ListingDetailScreen", { title: item.title })
+              navigation.navigate(routes.LISTING_DETAIL_SCREEN, item)
             }
-          >
-            <Card
-              title={item.title}
-              subTitle={"$" + item.price}
-              image={item.image}
-            />
-          </TouchableHighlight>
+          />
         )}
       />
     </Screen>
