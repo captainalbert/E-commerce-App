@@ -9,8 +9,8 @@ import navigationTheme from "./app/navigation/navigationTheme";
 export default function App() {
   return (
     <NavigationContainer theme={navigationTheme}>
-      <AuthNavigator />
-      {/* <AppNavigator /> */}
+      {/* <AuthNavigator /> */}
+      <AppNavigator />
       {/* <AccountNavigator /> */}
     </NavigationContainer>
   );
