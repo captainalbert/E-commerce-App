@@ -9,11 +9,10 @@ function ActivityIndicator({ visible = false }) {
       style={{
         width: 400,
         height: 400,
-        backgroundColor: "#eee",
       }}
       autoplay
       loop
-      source={require("../assets/animations/4dots-loader.json")}
+      source={require("../assets/animations/loader.json")}
     />
   );
 }
